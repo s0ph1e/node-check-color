@@ -1,0 +1,28 @@
+{
+  "name": "check-color",
+  "version": "0.1.0",
+  "description": "Check color shade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s0ph1e/check-color.git"
+  },
+  "keywords": [
+    "color",
+    "shade",
+    "check"
+  ],
+  "author": "s0ph1e",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s0ph1e/check-color/issues"
+  },
+  "homepage": "https://github.com/s0ph1e/check-color#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "parse-color": "^1.0.0"
+  }
+}
