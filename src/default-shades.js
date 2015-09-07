@@ -5,7 +5,7 @@ var shades = {
 		{ h: [0, 10] }
 	],
 	'red-orange': [{ h: [11, 20] }],
-	'orange-brown': [{ h: [21, 40] }],
+	'orange': [{ h: [21, 40] }],
 	'orange-yellow': [{ h: [41, 50] }],
 	'yellow': [{ h: [51, 60] }],
 	'yellow-green': [{ h: [61, 80] }],
