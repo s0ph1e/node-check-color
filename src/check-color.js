@@ -26,29 +26,45 @@ function isShade (shades, checkingShade, color) {
 	return exactlyEquals || partiallyEquals;
 }
 
-function buildColorChecker() {
-	var publicInterface = {};
-	var shades = {};
-
-	function init (newShades) {
-		var shadeName, methodName;
-
-		publicInterface = {};
-		shades = _.clone(newShades || defaultShades);
-
-		for (shadeName in shades) {
-			methodName = _.camelCase('is-' + shadeName);
-			publicInterface[methodName] = isShade.bind(null, shades, shadeName);
-		}
-
-		_.extend(publicInterface, {
-			init: init,
-			getShade: getShade.bind(null, shades)
-		});
-	}
-
-	init(defaultShades);
-	return publicInterface;
+function ColorChecker() {
+	this._shades = {};
+	this._methods = [];
+	this.init(defaultShades);
 }
 
-module.exports = buildColorChecker();
+ColorChecker.prototype.init = function init (shades) {
+	var self = this;
+
+	if (shades) {
+		updateShades();
+		removeOldMethods();
+		addNewMethods();
+	}
+
+	function updateShades () {
+		self._shades = _.clone(shades);
+	}
+
+	function removeOldMethods () {
+		var methodName;
+		while (methodName = self._methods.pop()) {
+			if (self.hasOwnProperty(methodName)) {
+				delete self[methodName];
+			}
+		}
+	}
+
+	function addNewMethods () {
+		_.forIn(self._shades, function addNewMethod (shadeValues, shadeName) {
+			var methodName = _.camelCase('is-' + shadeName);
+			self._methods.push(methodName);
+			self[methodName] = isShade.bind(null, self._shades, shadeName);
+		});
+	}
+};
+
+ColorChecker.prototype.getShade = function getColorShade (color) {
+	return getShade(this._shades, color);
+};
+
+module.exports = new ColorChecker();
