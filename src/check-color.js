@@ -4,8 +4,8 @@ var defaultShades = require('./default-shades');
 
 function getShade (shades, color) {
 	var colorObj = parse(color);
-	return _.findKey(shades, function(rules, colorName) {
-		var found = _.find(rules, function(rule) {
+	return _.findKey(shades, function (rules, colorName) {
+		var found = _.find(rules, function (rule) {
 			var min = rule.h[0];
 			var max = rule.h[1];
 			var curr = colorObj.hsl[0];
@@ -26,7 +26,7 @@ function isShade (shades, checkingShade, color) {
 	return exactlyEquals || partiallyEquals;
 }
 
-function ColorChecker() {
+function ColorChecker () {
 	this._shades = {};
 	this._methods = [];
 	this.init(defaultShades);

@@ -4,7 +4,8 @@
   "description": "Check color shade",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha --recursive ./test"
+    "test": "./node_modules/.bin/_mocha --recursive ./test",
+    "jscs": "./node_modules/.bin/jscs ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
+    "jscs": "^2.2.1",
     "mocha": "^2.3.3"
   }
 }

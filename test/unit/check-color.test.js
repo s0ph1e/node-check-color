@@ -7,7 +7,7 @@ describe('checkColor', function () {
 		expect(checkColor).to.be.an('object');
 	});
 
-	describe('_shades', function() {
+	describe('_shades', function () {
 		it('should exist', function () {
 			expect(checkColor).to.have.property('_shades');
 		});
@@ -17,7 +17,7 @@ describe('checkColor', function () {
 		});
 	});
 
-	describe('_methods', function() {
+	describe('_methods', function () {
 		it('should exist', function () {
 			expect(checkColor).to.have.property('_methods');
 		});
@@ -27,7 +27,7 @@ describe('checkColor', function () {
 		});
 	});
 
-	describe('init', function() {
+	describe('init', function () {
 		it('should exist', function () {
 			expect(checkColor).to.have.property('init');
 		});
@@ -37,7 +37,7 @@ describe('checkColor', function () {
 		});
 	});
 
-	describe('getShade', function() {
+	describe('getShade', function () {
 		it('should exist', function () {
 			expect(checkColor).to.have.property('getShade');
 		});
