@@ -13,5 +13,6 @@
   "requireSpacesInFunctionExpression": {
     "beforeOpeningRoundBrace": true,
     "beforeOpeningCurlyBrace": true
-  }
+  },
+  "requireSpaceBeforePostfixUnaryOperators": null
 }
