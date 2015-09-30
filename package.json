@@ -4,7 +4,7 @@
   "description": "Check color shade",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/_mocha --recursive ./test"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,9 @@
   "dependencies": {
     "lodash": "^3.10.1",
     "parse-color": "^1.0.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.3"
   }
 }
