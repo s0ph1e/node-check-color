@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var expect = require('expect.js');
 var checkColor = require('../../src/check-color');
 
@@ -34,6 +35,27 @@ describe('checkColor', function () {
 
 		it('should be a function', function () {
 			expect(checkColor.init).to.be.an('function');
+		});
+
+		it('should remove old methods and add new', function () {
+			var oldMethods = _.clone(checkColor._methods);
+			var newShades = {
+				a: [{ h: [0, 100] }],
+				b: [{ h: [101, 355] }]
+			};
+
+			checkColor.init(newShades);
+
+			expect(checkColor._methods).to.not.be.eql(oldMethods);
+			for (var i = 0; i < oldMethods.length; i++) {
+				expect(checkColor).to.not.have.property([oldMethods[i]]);
+			}
+
+			expect(checkColor._methods).to.contain('isA');
+			expect(checkColor._methods).to.contain('isB');
+			expect(checkColor).to.have.property('isA');
+			expect(checkColor).to.have.property('isA');
+
 		});
 	});
 
