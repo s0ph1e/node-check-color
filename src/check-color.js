@@ -1,6 +1,6 @@
 var parse = require('parse-color');
 var _ = require('lodash');
-var defaultShades = require('./default-shades');
+var defaultShades = require('./defaults');
 
 function getShade (shades, color) {
 	var colorObj = parse(color);
