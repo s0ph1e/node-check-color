@@ -1,74 +1,80 @@
 var _ = require('lodash');
 var expect = require('expect.js');
-var checkColor = require('../../src/check-color');
+var ColorChecker = require('../../src/color-checker');
 
-describe('checkColor', function () {
+describe('ColorChecker', function () {
+
+	var colorChecker;
+
+	before(function () {
+		colorChecker = new ColorChecker();
+	});
 
 	it('should be an object', function () {
-		expect(checkColor).to.be.an('object');
+		expect(colorChecker).to.be.an('object');
 	});
 
 	describe('_shades', function () {
 		it('should exist', function () {
-			expect(checkColor).to.have.property('_shades');
+			expect(colorChecker).to.have.property('_shades');
 		});
 
 		it('should be an object', function () {
-			expect(checkColor._shades).to.be.an('object');
+			expect(colorChecker._shades).to.be.an('object');
 		});
 	});
 
 	describe('_methods', function () {
 		it('should exist', function () {
-			expect(checkColor).to.have.property('_methods');
+			expect(colorChecker).to.have.property('_methods');
 		});
 
 		it('should be an array', function () {
-			expect(checkColor._methods).to.be.an('array');
+			expect(colorChecker._methods).to.be.an('array');
 		});
 	});
 
 	describe('init', function () {
 
 		it('should exist', function () {
-			expect(checkColor).to.have.property('init');
+			expect(colorChecker).to.have.property('init');
 		});
 
 		it('should be a function', function () {
-			expect(checkColor.init).to.be.an('function');
+			expect(colorChecker.init).to.be.an('function');
 		});
 
 		it('should update _shades, remove old methods and add new', function () {
-			var oldMethods = _.clone(checkColor._methods);
-			var oldShades  = _.clone(checkColor._shades);
+			var oldMethods = _.clone(colorChecker._methods);
+			var oldShades  = _.clone(colorChecker._shades);
 			var newShades = {
 				a: [{ h: [0, 100] }],
 				b: [{ h: [101, 355] }]
 			};
 
-			checkColor.init(newShades);
+			colorChecker.init(newShades);
 
-			expect(checkColor._methods).to.not.be.eql(oldMethods);
-			expect(checkColor._shades).to.not.be.eql(oldShades);
+			expect(colorChecker._methods).to.not.be.eql(oldMethods);
+			expect(colorChecker._shades).to.not.be.eql(oldShades);
 			for (var i = 0; i < oldMethods.length; i++) {
-				expect(checkColor).to.not.have.property([oldMethods[i]]);
+				expect(colorChecker).to.not.have.property([oldMethods[i]]);
 			}
 
-			expect(checkColor._methods).to.contain('isA');
-			expect(checkColor._methods).to.contain('isB');
-			expect(checkColor._shades).to.be.eql(newShades);
-			expect(checkColor).to.have.property('isA');
-			expect(checkColor).to.have.property('isA');
+			expect(colorChecker._methods).to.contain('isA');
+			expect(colorChecker._methods).to.contain('isB');
+			expect(colorChecker._shades).to.be.eql(newShades);
+			expect(colorChecker).to.have.property('isA');
+			expect(colorChecker).to.have.property('isA');
 		});
 	});
 
 	describe('getShade', function () {
 		it('should exist', function () {
-			expect(checkColor).to.have.property('getShade');
+			expect(colorChecker).to.have.property('getShade');
 		});
 
 		it('should be a function', function () {
-			expect(checkColor.getShade).to.be.an('function');
+			expect(colorChecker.getShade).to.be.an('function');
 		});
 
 		it('should return shade for color based on _shades', function () {
@@ -83,15 +89,15 @@ describe('checkColor', function () {
 				h: [{ h: [316, 360] }]
 			};
 
-			checkColor.init(newShades);
-			expect(checkColor.getShade('hsl(10,0,0)')).to.be('a');
-			expect(checkColor.getShade('hsl(50,0,0)')).to.be('b');
-			expect(checkColor.getShade('hsl(91,0,0)')).to.be('c');
-			expect(checkColor.getShade('hsl(140,0,0)')).to.be('d');
-			expect(checkColor.getShade('hsl(189,0,0)')).to.be('e');
-			expect(checkColor.getShade('hsl(240,0,0)')).to.be('f');
-			expect(checkColor.getShade('hsl(285,0,0)')).to.be('g');
-			expect(checkColor.getShade('hsl(333,0,0)')).to.be('h');
+			colorChecker.init(newShades);
+			expect(colorChecker.getShade('hsl(10,0,0)')).to.be('a');
+			expect(colorChecker.getShade('hsl(50,0,0)')).to.be('b');
+			expect(colorChecker.getShade('hsl(91,0,0)')).to.be('c');
+			expect(colorChecker.getShade('hsl(140,0,0)')).to.be('d');
+			expect(colorChecker.getShade('hsl(189,0,0)')).to.be('e');
+			expect(colorChecker.getShade('hsl(240,0,0)')).to.be('f');
+			expect(colorChecker.getShade('hsl(285,0,0)')).to.be('g');
+			expect(colorChecker.getShade('hsl(333,0,0)')).to.be('h');
 		});
 	});
 
@@ -103,23 +109,23 @@ describe('checkColor', function () {
 				'a-b': [{ h: [121, 240] }],
 				b: [{ h: [241, 360] }]
 			};
-			checkColor.init(newShades);
+			colorChecker.init(newShades);
 		});
 
 		it('should return true color meets shade exactly', function () {
-			expect(checkColor.isA('hsl(10,0,0)')).to.be.eql(true);
-			expect(checkColor.isAB('hsl(130,0,0)')).to.be.eql(true);
-			expect(checkColor.isB('hsl(250,0,0)')).to.be.eql(true);
+			expect(colorChecker.isA('hsl(10,0,0)')).to.be.eql(true);
+			expect(colorChecker.isAB('hsl(130,0,0)')).to.be.eql(true);
+			expect(colorChecker.isB('hsl(250,0,0)')).to.be.eql(true);
 		});
 
 		it('should return false if color doesn\'t meet shade', function () {
-			expect(checkColor.isB('hsl(10,0,0)')).to.be.eql(false);
-			expect(checkColor.isA('hsl(250,0,0)')).to.be.eql(false);
+			expect(colorChecker.isB('hsl(10,0,0)')).to.be.eql(false);
+			expect(colorChecker.isA('hsl(250,0,0)')).to.be.eql(false);
 		});
 
 		it('should return true if color has intermediate shade and meets several shades', function () {
-			expect(checkColor.isA('hsl(130,0,0)')).to.be.eql(true);
-			expect(checkColor.isB('hsl(130,0,0)')).to.be.eql(true);
+			expect(colorChecker.isA('hsl(130,0,0)')).to.be.eql(true);
+			expect(colorChecker.isB('hsl(130,0,0)')).to.be.eql(true);
 		});
 	});
 

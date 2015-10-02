@@ -67,4 +67,4 @@ ColorChecker.prototype.getShade = function getColorShade (color) {
 	return getShade(this._shades, color);
 };
 
-module.exports = new ColorChecker();
+module.exports = ColorChecker;

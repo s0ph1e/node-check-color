@@ -1,1 +1,2 @@
-module.exports = require('./src/check-color');
+var ColorChecker = require('./src/check-color');
+module.exports = new ColorChecker();
