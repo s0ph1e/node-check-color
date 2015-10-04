@@ -4,12 +4,13 @@
   "description": "Check color shade",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/_mocha --recursive ./test",
-    "jscs": "./node_modules/.bin/jscs ."
+    "test": "npm run jscs && npm run unit",
+    "unit": "istanbul cover _mocha --dir ./coverage --report lcov -- -R spec --recursive ./test",
+    "jscs": "jscs ./src ./test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/s0ph1e/check-color.git"
+    "url": "git+https://github.com/s0ph1e/node-check-color.git"
   },
   "keywords": [
     "color",
@@ -19,15 +20,17 @@
   "author": "s0ph1e",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s0ph1e/check-color/issues"
+    "url": "https://github.com/s0ph1e/node-check-color/issues"
   },
-  "homepage": "https://github.com/s0ph1e/check-color#readme",
+  "homepage": "https://github.com/s0ph1e/node-check-color#readme",
   "dependencies": {
     "lodash": "^3.10.1",
     "parse-color": "^1.0.0"
   },
   "devDependencies": {
+    "codeclimate-test-reporter": "^0.1.1",
     "expect.js": "^0.3.1",
+    "istanbul": "^0.3.21",
     "jscs": "^2.2.1",
     "mocha": "^2.3.3"
   }
