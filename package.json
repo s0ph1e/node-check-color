@@ -23,6 +23,7 @@
     "url": "https://github.com/s0ph1e/node-check-color/issues"
   },
   "homepage": "https://github.com/s0ph1e/node-check-color#readme",
+  "readmeFilename": "README.md",
   "dependencies": {
     "lodash": "^3.10.1",
     "parse-color": "^1.0.0"
