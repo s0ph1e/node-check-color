@@ -4,3 +4,4 @@ coverage
 .jscsrc
 .travis.yml
 docs
+test
