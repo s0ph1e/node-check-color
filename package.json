@@ -34,5 +34,9 @@
     "istanbul": "^0.3.21",
     "jscs": "^2.2.1",
     "mocha": "^2.3.3"
-  }
+  },
+  "files": [
+    "index.js",
+    "src"
+  ]
 }
