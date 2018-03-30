@@ -18,7 +18,7 @@ var shades = {
 	'magenta': [{ h: [281, 320] }],
 	'magenta-pink': [{ h: [321, 330] }],
 	'pink': [{ h: [331, 345] }],
-	'pin-red': [{ h: [346, 354] }]
+	'pink-red': [{ h: [346, 354] }]
 };
 
 module.exports = shades;
