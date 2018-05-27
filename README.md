@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/s0ph1e/node-check-color.svg?branch=master)](https://travis-ci.org/s0ph1e/node-check-color)
 [![Test Coverage](https://codeclimate.com/github/s0ph1e/node-check-color/badges/coverage.svg)](https://codeclimate.com/github/s0ph1e/node-check-color/coverage)
 [![Code Climate](https://codeclimate.com/github/s0ph1e/node-check-color/badges/gpa.svg)](https://codeclimate.com/github/s0ph1e/node-check-color)
-[![Version](https://img.shields.io/npm/v/check-color.svg?style=flat)](https://www.npmjs.org/package/check-color) [![Greenkeeper badge](https://badges.greenkeeper.io/s0ph1e/node-check-color.svg)](https://greenkeeper.io/)
+[![Version](https://img.shields.io/npm/v/check-color.svg?style=flat)](https://www.npmjs.org/package/check-color)
 
 Module parses color and determines its shade by hue value.
 
