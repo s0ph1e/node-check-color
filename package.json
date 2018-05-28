@@ -25,15 +25,15 @@
   "homepage": "https://github.com/s0ph1e/node-check-color#readme",
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.10",
     "parse-color": "^1.0.0"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "^0.1.1",
+    "codeclimate-test-reporter": "^0.5.0",
     "expect.js": "^0.3.1",
-    "istanbul": "^0.3.21",
-    "jscs": "^2.2.1",
-    "mocha": "^2.3.3"
+    "istanbul": "^0.4.5",
+    "jscs": "^3.0.7",
+    "mocha": "^5.2.0"
   },
   "files": [
     "index.js",

@@ -22,7 +22,7 @@ function getShade (shades, color) {
 function isShade (shades, checkingShade, color) {
 	var actualShade = getShade(shades, color);
 	var exactlyEquals = (actualShade === checkingShade);
-	var partiallyEquals = _.contains(actualShade.split('-'), checkingShade);
+	var partiallyEquals = _.includes(actualShade.split('-'), checkingShade);
 	return exactlyEquals || partiallyEquals;
 }
 
